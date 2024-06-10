@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+.bg-custom-opacity {
+  background-color: rgba(0, 0, 0, 0.425);
+}
+
+/* Add the frosted glass effect */
+.bg-frosted {
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* optional border for more effect */
+}
