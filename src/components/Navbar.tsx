@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 		const section = document.getElementById(id);
 		if (section) {
 			window.scrollTo({
-				top: section.offsetTop - 50, // Adjust the offset as needed
+				top: section.offsetTop - 50,
 				behavior: "smooth",
 			});
 		}
