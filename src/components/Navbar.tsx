@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const Navbar: React.FC = () => {
-	const [scroll, setScroll] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 50) {
-				setScroll(true);
+				setIsScrolled(true);
 			} else {
-				setScroll(false);
+				setIsScrolled(false);
 			}
 		};
 
@@ -19,9 +19,21 @@ const Navbar: React.FC = () => {
 		};
 	}, []);
 
+	const handleScrollToSection = (id: string) => {
+		const section = document.getElementById(id);
+		if (section) {
+			window.scrollTo({
+				top: section.offsetTop - 50, // Adjust the offset as needed
+				behavior: "smooth",
+			});
+		}
+	};
+
 	return (
 		<nav
-			className={`fixed w-full top-0 z-50 transition-opacity duration-300 bg-indigo-900 bg-frosted text-grey`}
+			className={`fixed w-full top-0 z-50 transition-opacity duration-300 bg-indigo-900 bg-frosted text-grey ${
+				isScrolled ? "bg-opacity-90" : "bg-opacity-100"
+			}`}
 		>
 			<div className="container mx-auto flex justify-between items-center p-4">
 				<div className="text-2xl font-bold">My Portfolio</div>
@@ -54,16 +66,6 @@ const Navbar: React.FC = () => {
 			</div>
 		</nav>
 	);
-
-	function handleScrollToSection(id: string) {
-		const section = document.getElementById(id);
-		if (section) {
-			window.scrollTo({
-				top: section.offsetTop - 50, // Adjust the offset as needed
-				behavior: "smooth",
-			});
-		}
-	}
 };
 
 export default Navbar;
