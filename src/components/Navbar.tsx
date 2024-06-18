@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
 				<div className="text-2xl font-bold">My Portfolio</div>
 				<div className="space-x-4">
 					<button
-						onClick={() => handleScrollToSection("jumbotron")}
+						onClick={() => handleScrollToSection("Jumbotron")}
 						className="hover:text-gray-300 focus:outline-none"
 					>
 						Home
